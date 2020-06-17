@@ -1,1 +1,5 @@
 require "master_to_main/version"
+require "thor"
+require "master_to_main/repo"
+require "master_to_main/branch_protection_params"
+require "master_to_main/cli"

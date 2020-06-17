@@ -1,4 +1,0 @@
-- Rename main branch
-- Change origin
-- Change PRs
-- Change default

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Change master to main}
   spec.description   = %q{Change master to main}
-  spec.homepage      = "https://github..com/dewyze/master_to_main"
+  spec.homepage      = "https://github.com/dewyze/master_to_main"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

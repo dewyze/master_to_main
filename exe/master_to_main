@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "master_to_main"
+
+MasterToMain::CLI.start(ARGV)
