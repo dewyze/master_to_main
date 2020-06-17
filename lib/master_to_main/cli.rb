@@ -11,14 +11,15 @@ module MasterToMain
     def github
 
       prompt_info
-
       create_client
+
       ensure_old_branch_exists
       ensure_new_branch_exists
       clone_branch_protections
       change_default_branch
       rebase_pull_requests
       change_origin
+      delete_local_old_branch
     end
 
     desc "update_local", "point local clone to new branch"
@@ -145,6 +146,14 @@ module MasterToMain
         else
           say "Be sure to change your local `origin` setting"
         end
+      end
+
+      def delete_local_old_branch
+        `git branch -D #{@repo.old_branch}` if yes?("Would you like to delete your local #{@repo.old_branch} branch?")
+
+        say "----------------"
+        say "In order to ensure no builds or deployments break, please delete your remote #{@repo.old_branch} on github", :green
+        say "----------------"
       end
     end
   end
