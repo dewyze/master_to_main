@@ -26,7 +26,7 @@ After filling out the relevant prompts you will be able to:
 
 1. Create a new branch (e.g. `main`) if it does not exist.
 1. Clone all branch protections from an old branch.
-  - Caveat: This does not include the signed commit requirement
+   - Caveat: This does not include the signed commit requirement
 1. Change the default branch of your repository
 1. Rebase all pull requests based on your old branch to your new branch
 1. Change the local `origin` remote value in github.
