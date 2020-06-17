@@ -36,8 +36,10 @@ module MasterToMain
 
     no_commands do
       def create_client
-        Octokit.configure do |c|
-          c.api_endpoint = @repo.api_endpoint
+        if @repo.github != "github.com"
+          Octokit.configure do |c|
+            c.api_endpoint = @repo.api_endpoint
+          end
         end
         token = ask("What is your GitHub Personal Access Token?")
 
@@ -55,7 +57,7 @@ module MasterToMain
           {
             github: "github." + github_suffix,
             user: user,
-            repo: repo.chomp,
+            repo: repo.gsub(/\.git/, "").chomp,
           }
         else
           {
@@ -70,7 +72,7 @@ module MasterToMain
         github_info = get_github_info
         github_url = ask("What is your github url?", default: github_info[:github]).gsub(/https:\/\//, "")
         user = ask("What is your github user?", default: github_info[:user])
-        github_repo = ask("What is your github repo?", default: github_info[:repo])
+        github_repo = ask("What is your github repo?", default: github_info[:repo]).gsub(/\.git/, "")
         old_branch = ask("What is your current primary branch?", default: "master")
         new_branch = ask("What is your desired primary branch?", default: "main")
 
