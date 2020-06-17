@@ -125,7 +125,7 @@ module MasterToMain
       end
 
       def rebase_pull_requests
-        if yes?("Would you like to rebase all requests based on #{@repo.old_branch} to #{@repo.new_branch}?")
+        if yes?("Would you like to rebase all pull requests based on #{@repo.old_branch} to #{@repo.new_branch}?")
           prs = @client.pull_requests(@repo.name)
           prs.each do |pr|
             if pr[:base][:ref] == @repo.old_branch
@@ -143,6 +143,7 @@ module MasterToMain
 
       def change_origin
         if yes?("Would you like to change origin to point to #{@repo.new_branch}?")
+          `git fetch`
           `git checkout #{@repo.new_branch}`
           `git push -u origin #{@repo.new_branch}`
         else
