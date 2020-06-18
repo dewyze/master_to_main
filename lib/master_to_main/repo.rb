@@ -18,12 +18,12 @@ module MasterToMain
       "#{user}/#{repo_name}"
     end
 
-    def old_branch_url
-      "https://#{github}/tree/#{old_branch}"
+    def old_branch_regex
+      /https:\/\/#{github}\/#{user}\/#{repo_name}\/(tree|blob)\/#{old_branch}/
     end
 
-    def new_branch_url
-      "https://#{github}/tree/#{new_branch}"
+    def new_branch_replacement
+      "https://#{github}/#{user}/#{repo_name}/\1/#{new_branch}"
     end
   end
 end
