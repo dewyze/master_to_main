@@ -23,7 +23,11 @@ module MasterToMain
     end
 
     def new_branch_replacement
-      "https://#{github}/#{user}/#{repo_name}/\1/#{new_branch}"
+      "https://#{github}/#{user}/#{repo_name}/\\1/#{new_branch}"
+    end
+
+    def new_branch_url
+      "https://#{github}/#{name}/tree/#{new_branch}"
     end
   end
 end

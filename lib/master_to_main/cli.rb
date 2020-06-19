@@ -9,8 +9,8 @@ module MasterToMain
       true
     end
 
-    desc "github", "rebase PRs to the main branch"
-    def github
+    desc "update", "rebase PRs to the main branch"
+    def update
       prompt_info
       create_client
 
@@ -21,16 +21,13 @@ module MasterToMain
       rebase_pull_requests
       change_origin
       delete_local_old_branch
+      ask_update_docs
     end
 
     desc "update_docs", "update local docs to use master"
     def update_docs
       prompt_info
-      say "This will update all references of #{@repo.old_branch} to #{@repo.new_branch} in the following lines in this repo:"
-      say "https://<github>/<user>/<repo>/<tree|blob>/#{@repo.old_branch}"
-      Dir.glob(File.expand_path("**/*.md", Dir.pwd)).each do |path|
-        gsub_file path, /https:\/\/#{@repo.github}\/#{@repo.name}\/(tree|blob)\/#{@repo.old_branch}/, "https://#{@repo.github}/#{@repo.name}/\\1/#{@repo.new_branch}", verbose: false
-      end
+      gsub_docs
     end
 
     desc "update_local", "point local clone to new branch"
@@ -169,6 +166,20 @@ module MasterToMain
         say "----------------"
         say "In order to ensure no builds or deployments break, please delete your remote #{@repo.old_branch} on github", :green
         say "----------------"
+      end
+
+      def ask_update_docs
+        if yes?("Would you like to update commit and branch references in your repo?")
+          gsub_docs
+        end
+      end
+
+      def gsub_docs
+        say "This will update all references of #{@repo.old_branch} to #{@repo.new_branch} in the following lines in this repo:"
+        say "https://#{@repo.github}/#{@repo.name}/<tree|blob>/#{@repo.old_branch}"
+        Dir.glob(File.expand_path("**/*.md", Dir.pwd)).each do |path|
+          gsub_file path, @repo.old_branch_regex, @repo.new_branch_replacement, verbose: false
+        end
       end
     end
   end

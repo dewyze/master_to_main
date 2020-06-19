@@ -5,7 +5,7 @@ enterprise to a new branch. For example, if you wanted to change `master` to
 `main`.
 
 While `master` does have meanings that connote expertise or original record, it also
-has meanings that have much more oppressive and violent histories. Whether or not the 
+has meanings that have much more oppressive and violent histories. Whether or not the
 original meaning of `master` branch was in reference to original record or slave
 matters less than what it may mean to a reader who doesn't want to bother with the
 history of git.
@@ -19,17 +19,18 @@ suggestion](https://twitter.com/shanselman/status/1269838158650195968).
 
 ## Functionality
 
-`MasterToMain` has 2 actions for now:
+`MasterToMain` has 1 actions for now:
 
-1. `github`
-2. `update_local`
+1. `update`
+1. `update_local`
+1. `update_docs`
 
-## `github`
+## `update`
 
 ### Usage
 
 ```
-master_to_main github
+master_to_main update
 ```
 
 After filling out the relevant prompts you will be able to:
@@ -74,6 +75,16 @@ $ git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
 All credit for this goes to "Brad from XUnit.net!" per [Scott's
 Blog](https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx).
 
+## `update_docs`
+
+### Usage
+
+```
+master_to_main update_docs
+```
+
+This will attempt to update all references to commits on the master branch with
+commits on the main branch.
 
 ## Installation
 
