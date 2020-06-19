@@ -1,3 +1,9 @@
+# 0.0.5 - 2020-06-19
+
+- Add `find_references` for finding non doc references
+- Provide better explanation that you are updating docs only
+- Rescue from branch protection errors like in personal private repos
+
 # 0.0.4 - 2020-06-18
 
 - Change `github` to `update`
