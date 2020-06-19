@@ -1,3 +1,8 @@
+# 0.0.4 - 2020-06-18
+
+- Change `github` to `update`
+- Add `update_docs` command
+
 # 0.0.3 - 2020-06-17
 
 - Only set api endpoint if not using "github.com"
