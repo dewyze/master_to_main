@@ -6,9 +6,9 @@ enterprise to a new branch. For example, if you wanted to change `master` to
 
 While `master` does have meanings that connote expertise or original record, it also
 has meanings that have much more oppressive and violent histories. Whether or not the
-original meaning of `master` branch was in reference to original record or slave
-matters less than what it may mean to a reader who doesn't want to bother with the
-history of git.
+original meaning of `master` branch was in reference to original record or the opposite
+of slave matters less than what it may mean to a reader who doesn't want to bother with
+the history of git.
 
 Per the twitter thread below, maybe we can just think of it as:
 
