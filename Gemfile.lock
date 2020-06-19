@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    master_to_main (0.1.0)
+    master_to_main (0.0.5)
       octokit (~> 4.0)
       thor (~> 1.0.1)
 
@@ -41,7 +41,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.17)
+  bundler (~> 2.0)
   master_to_main!
   rake (~> 13.0)
   rspec (~> 3.0)
+
+BUNDLED WITH
+   2.1.4

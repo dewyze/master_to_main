@@ -1,4 +1,5 @@
 require "thor"
+require "pry"
 require "octokit"
 
 module MasterToMain
@@ -22,12 +23,19 @@ module MasterToMain
       change_origin
       delete_local_old_branch
       ask_update_docs
+      ask_find_references
     end
 
-    desc "update_docs", "update local docs to use master"
+    desc "update_docs", "update local docs to use MAIN"
     def update_docs
       prompt_info
-      gsub_docs
+      _update_docs
+    end
+
+    desc "find_references", "find references to github urls with MAIN"
+    def find_references
+      prompt_info
+      _find_references
     end
 
     desc "update_local", "point local clone to new branch"
@@ -124,7 +132,12 @@ module MasterToMain
       end
 
       def clone_branch_protections
-        options = @client.branch_protection(@repo.name, @repo.old_branch)
+        begin
+          repo = @client.repo(@repo.name)
+          options = @client.branch_protection(@repo.name, @repo.old_branch)
+        rescue Octokit::Forbidden
+          return
+        end
 
         if options && yes?("Would you like to clone branch protections from '#{@repo.old_branch}'?")
           updates =  BranchProtectionParams.build(options.to_h)
@@ -169,17 +182,31 @@ module MasterToMain
       end
 
       def ask_update_docs
-        if yes?("Would you like to update commit and branch references in your repo?")
-          gsub_docs
+        say("We can update #{@repo.github} references in '.md' files that include master in your repo")
+        say("For example: https://#{@repo.github}/#{@repo.name}/(tree|blob)/master")
+        if yes?("Would you like to update these references?")
+          _update_docs
+          say("You should consider searching for other references not in markdown files.")
+          say("We don't want to automatically change those in case something breaks.")
+          say("But you can use `master_to_main find_references` to show you where they are")
         end
       end
 
-      def gsub_docs
+      def ask_find_references
+        _find_references if yes?("Would you like to display other URL references?")
+      end
+
+      def _update_docs
         say "This will update all references of #{@repo.old_branch} to #{@repo.new_branch} in the following lines in this repo:"
         say "https://#{@repo.github}/#{@repo.name}/<tree|blob>/#{@repo.old_branch}"
         Dir.glob(File.expand_path("**/*.md", Dir.pwd)).each do |path|
-          gsub_file path, @repo.old_branch_regex, @repo.new_branch_replacement, verbose: false
+          gsub_file path, /#{@repo.old_branch_regex}/, @repo.new_branch_replacement, verbose: false
         end
+      end
+
+      def _find_references
+        say "Here are the references to urls with #{@repo.old_branch}:\n\n"
+        puts `git grep -E '#{@repo.old_branch_regex}'`
       end
     end
   end
