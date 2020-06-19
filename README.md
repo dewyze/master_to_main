@@ -52,6 +52,8 @@ or `pwd`)
 1. The current default branch (default is `master`)
 1. The desired default branch (default is `main`)
 1. Your personal access token (instructions for settings one can be found [here](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line))
+   - You should enable "repo" access
+
 
 ## `update_local`
 
