@@ -4,6 +4,16 @@
 enterprise to a new branch. For example, if you wanted to change `master` to
 `main`.
 
+While `master` does have meanings that connote expertise or original record, it also
+has meanings that have much more oppressive and violent histories. Whether or not the 
+original meaning of `master` branch was in reference to original record or slave
+matters less than what it may mean to a reader who doesn't want to bother with the
+history of git.
+
+Per the twitter thread below, maybe we can just think of it as:
+
+> Agreed. All it does is make the world a tiny bit more welcoming.
+
 Thanks to [@shanselman](https://github.com/shanselman) for [the
 suggestion](https://twitter.com/shanselman/status/1269838158650195968).
 
@@ -14,7 +24,7 @@ suggestion](https://twitter.com/shanselman/status/1269838158650195968).
 1. `github`
 2. `update_local`
 
-## Github
+## `github`
 
 ### Usage
 
@@ -41,7 +51,7 @@ or `pwd`)
 1. The current default branch (default is `master`)
 1. The desired default branch (default is `main`)
 
-## Update Local Clone
+## `update_local`
 
 ### Usage
 
