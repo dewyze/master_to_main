@@ -17,6 +17,22 @@ Per the twitter thread below, maybe we can just think of it as:
 Thanks to [@shanselman](https://github.com/shanselman) for [the
 suggestion](https://twitter.com/shanselman/status/1269838158650195968).
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'master_to_main'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install master_to_main
+
 ## Functionality
 
 `MasterToMain` has 1 actions for now:
@@ -87,22 +103,6 @@ master_to_main update_docs
 
 This will attempt to update all references to commits on the master branch with
 commits on the main branch.
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'master_to_main'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install master_to_main
 
 ## TODO
 
