@@ -200,7 +200,9 @@ module MasterToMain
       def _update_docs
         say "This will update all references of #{@repo.old_branch} to #{@repo.new_branch} in the following lines in this repo:"
         say "https://#{@repo.github}/#{@repo.name}/<tree|blob>/#{@repo.old_branch}"
-        Dir.glob(File.expand_path("**/*.md", Dir.pwd)).each do |path|
+        Dir.glob("**/*.md").each do |path|
+          next if path.start_with?("vendor/")
+          path = File.expand_path(path, Dir.pwd)
           gsub_file path, /#{@repo.old_branch_regex}/, @repo.new_branch_replacement, verbose: false
         end
       end
