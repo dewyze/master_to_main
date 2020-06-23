@@ -1,5 +1,8 @@
 require "thor"
-require "pry"
+begin
+  require "pry"
+rescue LoadError
+end
 require "octokit"
 
 module MasterToMain
