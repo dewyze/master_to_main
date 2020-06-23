@@ -19,19 +19,12 @@ suggestion](https://twitter.com/shanselman/status/1269838158650195968).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+You need ruby and [rubygems](https://rubygems.org/pages/download) to use `master_to_main`.
+With ruby gems installed you can simply run
 
-```ruby
-gem 'master_to_main'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install master_to_main
+$ gem install master_to_main
+```
 
 ## Functionality
 
