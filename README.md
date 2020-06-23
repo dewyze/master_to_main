@@ -28,11 +28,11 @@ $ gem install master_to_main
 
 ## Functionality
 
-`MasterToMain` has 1 actions for now:
+`MasterToMain` has 3 actions:
 
-1. `update`
-1. `update_local`
-1. `update_docs`
+1. `update` - Update github, pull requests, branch protections, local origin
+1. `update_local` - For people to use after `update` to update the local clone
+1. `update_docs` - If you just want to search docs for github urls.
 
 ## `update`
 

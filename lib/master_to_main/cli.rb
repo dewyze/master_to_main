@@ -30,6 +30,7 @@ module MasterToMain
     def update_docs
       prompt_info
       _update_docs
+      ask_find_references
     end
 
     desc "find_references", "find references to github urls with MAIN"
