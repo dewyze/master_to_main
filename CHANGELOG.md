@@ -1,3 +1,8 @@
+# 0.0.6 - 2020-06-23
+
+- Include `find_references` in `update_docs`
+- README Updates
+
 # 0.0.5 - 2020-06-19
 
 - Add `find_references` for finding non doc references
