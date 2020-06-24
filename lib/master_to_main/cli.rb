@@ -89,7 +89,7 @@ module MasterToMain
       def prompt_info
         github_info = get_github_info
         github_url = ask("What is your github url?", default: github_info[:github]).gsub(/https:\/\//, "")
-        user = ask("What is your github user?", default: github_info[:user])
+        user = ask("What is the repo's parent user/organization?", default: github_info[:user])
         github_repo = ask("What is your github repo?", default: github_info[:repo]).gsub(/\.git/, "")
         old_branch = ask("What is your current primary branch?", default: "master")
         new_branch = ask("What is your desired primary branch?", default: "main")
@@ -100,7 +100,7 @@ module MasterToMain
       def ensure_old_branch_exists
         @client.branch(@repo.name, @repo.old_branch)
       rescue Octokit::NotFound
-        say "The current primary branch does not exist, or do you not have access. Was there a typo?", :red
+        say "The current primary branch does not exist, or you do not have access. Was there a typo?", :red
         say "-----------------------"
         say "CURRENT PRIMARY BRANCH: #{@repo.old_branch}", :green
         exit 1
