@@ -1,3 +1,9 @@
+# 0.0.7 - 2020-06-24
+
+- Remove forgotten pry requirement
+- Don't update md files in `vendor/` (thanks @woodbusy)
+- Readme clarification (thanks @woodbusy)
+
 # 0.0.6 - 2020-06-23
 
 - Include `find_references` in `update_docs`

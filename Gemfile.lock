@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    master_to_main (0.0.6)
+    master_to_main (0.0.7)
       octokit (~> 4.0)
       thor (~> 1.0.1)
 
