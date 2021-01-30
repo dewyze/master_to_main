@@ -66,7 +66,8 @@ module MasterToMain
 
       def get_github_info
         fetch_url = `git remote show origin | grep "Fetch URL"`
-        if fetch_url != ""
+        #GH Enterprise URLs include a semicolon that public URLs do not
+        if fetch_url.match(/com:/)
           base = fetch_url.split("github.")[1]
           github_suffix, user_repo = base.split(":")
           user, repo = user_repo.split("/")
