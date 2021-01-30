@@ -1,3 +1,6 @@
+# Unreleased
+- Fixup issue where public Github URLs would result in a `NilClass` error. (thanks @hollabaq86)
+
 # 0.0.7 - 2020-06-24
 
 - Remove forgotten pry requirement

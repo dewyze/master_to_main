@@ -53,9 +53,9 @@ After filling out the relevant prompts you will be able to:
 
 You will be prompted for:
 
-1. Your "github" (e.g. "github.com" or "github.mycompany.com", default is based
+1. The "github" (e.g. "github.com" or "github.mycompany.com", default is based
 on Fetch URL of `origin` or "github.com")
-1. Your user (default is based on Fetch URL of `origin` or `whoami`)
+1. The parent user/organization (default is based on Fetch URL of `origin` or `whoami`, which may be different if the repo is owned by an organization)
 1. The repository you want to update (default is based on Fetch URL of `origin`
 or `pwd`)
 1. The current default branch (default is `master`)
